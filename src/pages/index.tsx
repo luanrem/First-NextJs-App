@@ -1,6 +1,6 @@
 import { Console } from 'console';
 import { GetServerSideProps } from 'next';
-import { Tytle } from '../styles/pages/Home';
+import { Tytle } from '@/styles/pages/Home';
 
 interface IProduct {
   id: string;
