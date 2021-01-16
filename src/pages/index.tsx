@@ -1,3 +1,4 @@
+import { Console } from 'console';
 import { GetServerSideProps } from 'next';
 import { Tytle } from '../styles/pages/Home';
 
@@ -17,7 +18,7 @@ export default function Home({ recommendedProducts }: HomeProps) {
     const { sum } = (await import('../lib/math')).default;
     alert(sum(3, 5));
   }
-
+  console.log(process.env.NEXT_PUBLIC_API_URL);
 
   return (
     <div>
@@ -42,7 +43,7 @@ export default function Home({ recommendedProducts }: HomeProps) {
 
 export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
 
-    const response = await fetch('http://localhost:3333/recommended')
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/recommended`)
     const recommendedProducts = await response.json();
 
     return {
