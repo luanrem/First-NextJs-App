@@ -13,6 +13,10 @@ interface HomeProps {
 //Browser <-> Next <-> Back-end
 
 export default function Home({ recommendedProducts }: HomeProps) {
+  async function handleSum() {
+    const { sum } = (await import('../lib/math')).default;
+    alert(sum(3, 5));
+  }
 
 
   return (
@@ -30,6 +34,8 @@ export default function Home({ recommendedProducts }: HomeProps) {
           })}
         </ul>
       </section>
+
+      <button onClick={handleSum}>Sum!</button>
     </div>
   )
 }
