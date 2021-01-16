@@ -1,6 +1,7 @@
 import { Console } from 'console';
 import { GetServerSideProps } from 'next';
 import { Tytle } from '@/styles/pages/Home';
+import SEO from '@/components/SEO';
 
 interface IProduct {
   id: string;
@@ -18,10 +19,14 @@ export default function Home({ recommendedProducts }: HomeProps) {
     const { sum } = (await import('../lib/math')).default;
     alert(sum(3, 5));
   }
-  console.log(process.env.NEXT_PUBLIC_API_URL);
 
   return (
     <div>
+      <SEO 
+        title="DevCommerce, your best e-comerce"
+        shouldExcludeTitleSuffix
+      />
+
       <section>
         <Tytle>Products</Tytle>
 
